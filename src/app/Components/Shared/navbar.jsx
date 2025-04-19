@@ -1,4 +1,3 @@
-
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -51,10 +50,6 @@ export default function Navbar() {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className='pr-10 gap-5 flex'>
-                    <IoCartOutline className='text-2xl' />
-                    <CiSearch className='text-2xl' />
-                </div>
                 <a className="btn btn-outline btn-primary mr-5">Appointment</a>
             </div>
         </div>

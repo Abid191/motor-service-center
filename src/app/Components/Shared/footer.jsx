@@ -3,15 +3,15 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <footer className="footer bg-slate-700 text-slate-50 p-10">
-            <aside>
-                <Image alt='logo' src='/assets/logo.svg' width={60} height={50}></Image>
+        <footer className="footer sm:footer-horizontal bg-gray-600 text-white p-10">
+            <div>
+                <Image alt='logo' src='assets/logo.svg' width={80} height={70}></Image>
                 <p>
                     ACME Industries Ltd.
                     <br />
                     Providing reliable tech since 2024
                 </p>
-            </aside>
+            </div>
             <nav>
                 <h6 className="footer-title">Services</h6>
                 <a className="link link-hover">Branding</a>
@@ -32,6 +32,19 @@ export default function Footer() {
                 <a className="link link-hover">Privacy policy</a>
                 <a className="link link-hover">Cookie policy</a>
             </nav>
+            <form>
+                <h6 className="footer-title">Newsletter</h6>
+                <fieldset className="w-80">
+                    <label>Enter your email address</label>
+                    <div className="join">
+                        <input
+                            type="text"
+                            placeholder="username@site.com"
+                            className="input input-bordered join-item" />
+                        <button className="btn btn-primary join-item">Subscribe</button>
+                    </div>
+                </fieldset>
+            </form>
         </footer>
     )
 }
