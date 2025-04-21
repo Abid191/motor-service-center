@@ -51,7 +51,7 @@ export default function Navbar() {
             </div>
             <div className="navbar-end">
                 <a className="btn btn-outline btn-primary mr-5">Appointment</a>
-                <Link className='btn btn-primary' href='SignUp'>Login</Link>
+                <Link className='btn btn-primary' href='Login'>Login</Link>
             </div>
         </div>
     )
