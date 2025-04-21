@@ -1,10 +1,11 @@
 import React from 'react'
-import DataCards from '../../DataCards/DataCards'
 import { allServiceData } from '@/Services/Get-All-Api/Api'
+import DataCards from '../../DataCards/DataCards'
 
 export default async function Services() {
 
     const motorData = await allServiceData()
+    // console.log(motorData)
 
     return (
         <div className='mt-32 '>
@@ -14,8 +15,8 @@ export default async function Services() {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 mt-10 gap-y-5 lg:ml-16">
                 {
-                    motorData.services?.map((service)=> (<DataCards 
-                    key={service.id}
+                    motorData.services?.map((service)=> (
+                    <DataCards key={service._id}
                     service = {service}
                     ></DataCards>))
                 }

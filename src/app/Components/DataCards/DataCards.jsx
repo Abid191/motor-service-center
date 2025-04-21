@@ -11,11 +11,11 @@ export default function DataCards({service}) {
                 <Image className='h-60 pt-5' height={240} width={350} src={img} alt={title}></Image>
             </figure>
             <div className="card-body ">
-                <h2 className="card-title ">Title :</h2>
+                <h2 className="card-title ">{title}</h2>
 
                 <div className="card-actions justify-between items-center">
                     <p className=''>Price : <span className='font-bold text-orange-400'>{price} $</span></p>
-                    <Link href={'/'}><button className="btn btn-primary"> View Details <FaArrowRight /></button></Link>
+                    <Link href={`servicesData/${_id}`}><button className="btn btn-primary"> View Details <FaArrowRight /></button></Link>
                 </div>
             </div>
         </div>

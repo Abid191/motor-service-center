@@ -5,11 +5,11 @@ import React from 'react'
 export default function Navbar() {
     const navItems = <>
         <Link href='/'><li><a>Home </a></li></Link>
-        <Link href='About'><li><a>About </a></li></Link>
-        <Link href='servicesData'><li><a>Services </a></li></Link>
+        <Link href='/Components/HomePage/About'><li><a>About </a></li></Link>
+        <Link href='/Component/HomePage/Servicees'><li><a>Services </a></li></Link>
         <Link href='Blog'><li><a>Blog </a></li></Link>
         <Link href='my-bookings'><li><a>My Bookings </a></li></Link>
-        <Link href='Account'><li><a>Account </a></li></Link>
+        <Link href='/Components/HomePage/Account'><li><a>Account </a></li></Link>
 
     </>
     return (
@@ -51,6 +51,7 @@ export default function Navbar() {
             </div>
             <div className="navbar-end">
                 <a className="btn btn-outline btn-primary mr-5">Appointment</a>
+                <Link className='btn btn-primary' href='Login'>Login</Link>
             </div>
         </div>
     )

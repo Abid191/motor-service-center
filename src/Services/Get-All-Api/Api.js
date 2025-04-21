@@ -4,3 +4,8 @@ export const allServiceData = async () => {
     return data
 };
 
+export const singleServiceData = async(id)=>{
+    const singleData = await fetch(`http://localhost:3000/servicesData/api/${id}`)
+    const data = await singleData.json()
+    return data
+}
