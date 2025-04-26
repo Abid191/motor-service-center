@@ -2,6 +2,8 @@ import { connectDB } from "@/lib/connectDB"
 import NextAuth from "next-auth"
 import bcrypt from "bcrypt";
 import CredentialsProvider from "next-auth/providers/credentials"
+import GitHubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 
 const handler = NextAuth({
 
@@ -34,14 +36,42 @@ const handler = NextAuth({
                 return currentUser
 
             }
+        }),
+        GoogleProvider({
+            clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+            clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET
+        }),
+        GitHubProvider({
+            clientId: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID,
+            clientSecret: process.env.NEXT_PUBLIC_GITHUB_CLIENT_SECRET
         })
+
     ],
 
-    pages: {
 
+    pages: {
+        signIn: 'Login'
     },
     callbacks: {
-
+        async signIn({ user, account }) {
+            if(account.provider === 'google' || account.provider === 'github'){
+                const {name,email,image } = user
+                try {
+                    const db = await connectDB()
+                    const userCollection = await db.collection('users')
+                    const userExist = await userCollection.findOne({email})
+                    if(!userExist){
+                        const resp = await userCollection.insertOne(user)
+                        return user
+                    }
+                    else{
+                        return user
+                    }
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+        }
     },
 })
 

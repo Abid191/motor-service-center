@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import Social_Login from '../Components/Shared/socialLogin';
 
 const SignUp = () => {
 
@@ -10,18 +11,18 @@ const SignUp = () => {
         const form = event.target
         const newUser = {
             name: form.name.value,
-            email : form.email.value,
-            password : form.password.value 
+            email: form.email.value,
+            password: form.password.value
         }
 
-        const resp = await fetch('http://localhost:3000/SignUp/api',{
-            method : 'POST',
-            headers : {
-                'content-type' : 'application/json'
+        const resp = await fetch('http://localhost:3000/SignUp/api', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
             },
-            body:JSON.stringify(newUser),
+            body: JSON.stringify(newUser),
         })
-        if(resp.ok){
+        if (resp.ok) {
             form.reset()
         }
     }
@@ -95,6 +96,7 @@ const SignUp = () => {
                                 Login
                             </Link>
                         </p>
+                        <Social_Login></Social_Login>
                     </div>
                 </div>
             </div>

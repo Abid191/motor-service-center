@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
+import Social_Login from '../Components/Shared/socialLogin';
 
 const Login = () => {
 
@@ -83,7 +84,7 @@ const Login = () => {
                                 Sign up
                             </Link>
                         </p>
-                        
+                        <Social_Login></Social_Login>
                     </div>
                 </div>
             </div>
